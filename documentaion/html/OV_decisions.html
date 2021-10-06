@@ -1,0 +1,262 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Funktionsreferenz: decisions</title><meta name="generator" content="MATLAB 8.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2014-05-21"><meta name="DC.source" content="OV_decisions.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, tt, code { font-size:12px; }
+pre { margin:0px 0px 20px; }
+pre.error { color:red; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Funktionsreferenz: decisions</h1><!--introduction--><p>Der Ordner "decisions" der DFT-Toolbox enth&auml;lt Funktionen die, unter Betrachtung bestimmter <a href="OV_characteristics.html">Ma&szlig;zahlen</a>, eine Entscheidung &uuml;ber den Zustand eines Feldes treffen. Alle diese Funktionen liefern boolsche Werte zur&uuml;ck (in MatLab&reg; als "0" f&uuml;r false und "1" f&uuml;r true definiert).</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#2">decide2PointSRDx2(field)</a></li><li><a href="#8">decide2PointSRDx5(field)</a></li><li><a href="#14">decide2PointSRDx7(field)</a></li><li><a href="#20">decide2PointSRDx10(field)</a></li><li><a href="#26">decideDead(field)</a></li><li><a href="#32">decideExplosion(field)</a></li><li><a href="#38">decideLocalization(field)</a></li><li><a href="#44">decideStimuliDivided(field)</a></li><li><a href="#50">decideWTA(field)</a></li><li><a href="#56">decideType(field)</a></li></ul></div><p>Beachte: <b>decideType()</b> bildet hier eine Ausnahme.</p><h2>decide2PointSRDx2(field)<a name="2"></a></h2><p>Entscheidet, ob die beiden Stimuli getrennt wahrnehmbar sind. Als Entscheidungsregel wird die Absolute Differenz der Fehlerwerte der Gauss-Fits verwendet. Die Stimuli gelten als trennbar, wenn der "ein-Gauss-Fit" einen <b>zwei mal so gro&szlig;en</b> Fehlerwert hat wie der "zwei-Gauss Fit". <b>Input:</b></p><div><ul><li>field:</li></ul></div><p>Die field-Structure, deren Inhalt bewertet werden soll.</p><p><b>Output:</b></p><div><ul><li>decision:</li></ul></div><p>Die Eintscheidung. <i>true</i> wenn die Reize getrennt wahrnehmbar sind, <i>false</i> wenn nicht.</p><h2>decide2PointSRDx5(field)<a name="8"></a></h2><p>Entscheidet, ob die beiden Stimuli getrennt wahrnehmbar sind. Als Entscheidungsregel wird die Absolute Differenz der Fehlerwerte der Gauss-Fits verwendet. Die Stimuli gelten als trennbar, wenn der "ein-Gauss-Fit" einen <b>f&uuml;nf mal so gro&szlig;en</b> Fehlerwert hat wie der "zwei-Gauss Fit". <b>Input:</b></p><div><ul><li>field:</li></ul></div><p>Die field-Structure, deren Inhalt bewertet werden soll.</p><p><b>Output:</b></p><div><ul><li>decision:</li></ul></div><p>Die Eintscheidung. <i>true</i> wenn die Reize getrennt wahrnehmbar sind, <i>false</i> wenn nicht.</p><h2>decide2PointSRDx7(field)<a name="14"></a></h2><p>Entscheidet, ob die beiden Stimuli getrennt wahrnehmbar sind. Als Entscheidungsregel wird die Absolute Differenz der Fehlerwerte der Gauss-Fits verwendet. Die Stimuli gelten als trennbar, wenn der "ein-Gauss-Fit" einen <b>sieben mal so gro&szlig;en</b> Fehlerwert hat wie der "zwei-Gauss Fit". <b>Input:</b></p><div><ul><li>field:</li></ul></div><p>Die field-Structure, deren Inhalt bewertet werden soll.</p><p><b>Output:</b></p><div><ul><li>decision:</li></ul></div><p>Die Eintscheidung. <i>true</i> wenn die Reize getrennt wahrnehmbar sind, <i>false</i> wenn nicht.</p><h2>decide2PointSRDx10(field)<a name="20"></a></h2><p>Entscheidet, ob die beiden Stimuli getrennt wahrnehmbar sind. Als Entscheidungsregel wird die Absolute Differenz der Fehlerwerte der Gauss-Fits verwendet. Die Stimuli gelten als trennbar, wenn der "ein-Gauss-Fit" einen <b>zehn mal so gro&szlig;en</b> Fehlerwert hat wie der "zwei-Gauss Fit". <b>Input:</b></p><div><ul><li>field:</li></ul></div><p>Die field-Structure, deren Inhalt bewertet werden soll.</p><p><b>Output:</b></p><div><ul><li>decision:</li></ul></div><p>Die Eintscheidung. <i>true</i> wenn die Reize getrennt wahrnehmbar sind, <i>false</i> wenn nicht.</p><h2>decideDead(field)<a name="26"></a></h2><p>Entscheidet, ob das Feld "tot" ist, also trotz Stimulus keine &uuml;berschwellige Aktivit&auml;t zum Zeitpunkt zum Zeitpunkt <i>command on</i> auftritt.</p><div><ul><li>field:</li></ul></div><p>Die field-Structure, deren Inhalt bewertet werden soll.</p><p><b>Output:</b></p><div><ul><li>decision:</li></ul></div><p>Die Eintscheidung. <i>true</i> wenn das Feld "tot" ist, <i>false</i> wenn nicht.</p><h2>decideExplosion(field)<a name="32"></a></h2><p>Entscheidet, ob das Feld "explodiert", also am Ende der Betrachtungszeit jede Einheit eine &uuml;berschwellige Aktivit&auml;t aufweist.</p><div><ul><li>field:</li></ul></div><p>Die field-Structure, deren Inhalt bewertet werden soll.</p><p><b>Output:</b></p><div><ul><li>decision:</li></ul></div><p>Die Eintscheidung. <i>true</i> wenn das Feld "explodert", <i>false</i> wenn nicht.</p><h2>decideLocalization(field)<a name="38"></a></h2><p>Setzt die Druckpunktdistanz der Parameter auf "0" und simuliert (wenn n&ouml;tig) danach neu. Untersucht wird der Abstand des Maximums der Neuronantwort von der Stimulusposition. Ein hoher Abstand weist darauf hin, dass der Usprungs des Stimulus nicht sehr genau lokalisiert werden kann.</p><div><ul><li>field:</li></ul></div><p>Die field-Structure, deren Inhalt bewertet werden soll.</p><p><b>Output:</b></p><div><ul><li>decision:</li></ul></div><p>Die Eintscheidung. <i>true</i> wenn die Lokalisation erfolgreich war, <i>false</i> wenn nicht.</p><h2>decideStimuliDivided(field)<a name="44"></a></h2><p>Entscheidet, ob die Stimuli vollst&auml;ndig trennbar sind, also (fast) keine Verschmelzung mehr aufweisen.</p><div><ul><li>field:</li></ul></div><p>Die field-Structure, deren Inhalt bewertet werden soll.</p><p><b>Output:</b></p><div><ul><li>decision:</li></ul></div><p>Die Eintscheidung. <i>true</i> wenn die Stimuli getrennt sind, <i>false</i> wenn nicht.</p><h2>decideWTA(field)<a name="50"></a></h2><p>Entscheidet, ob das Feld einen <i>winner-take-all</i> Mechanismus aufweist. Hierzu wird die Funktion <a href="OV_characteristics">differenceWTAAbs()</a> aufgerufen.</p><div><ul><li>field:</li></ul></div><p>Die field-Structure, deren Inhalt bewertet werden soll.</p><p><b>Output:</b></p><div><ul><li>decision:</li></ul></div><p>Die Eintscheidung. <i>true</i> wenn ein <i>winner-take-all</i> vorliegt, <i>false</i> wenn nicht.</p><h2>decideType(field)<a name="56"></a></h2><p>Kombiniert einige der Entscheiderfunktionen und teilt ein Feld somit in eine von f&uuml;nf verschiedenen Kategorien ein (siehe "Output").</p><p>Beachte: Bis auf weiteres verwendet diese Funktion zur 2-Punkt-Diskrimination die Funktion <b>decide2PointSRDx5()</b>. Dies wird &uuml;berarbeitet sobald eine bessere Entscheidungsregel verf&uuml;gbar ist.</p><div><ul><li>field:</li></ul></div><p>Die field-Structure, deren Inhalt bewertet werden soll.</p><p><b>Output:</b></p><div><ul><li>decision:</li></ul></div><p>Die Kategorie, in die das Feld sich einordnen l&auml;sst:</p><div><ul><li>1:</li></ul></div><p>"Totes" Feld - trotz Stimulus keinerlei &uuml;berschwellige Aktivit&auml;t.</p><div><ul><li>2:</li></ul></div><p>"Verschmelzung" - Die Antwort auf beide Stimuli verschmilzt zu einem einzigen Aktivierungsberg.</p><div><ul><li>3:</li></ul></div><p>"WTA" - Nur ein Aktivierungsberg ist &uuml;berschwellig, der zweite wurde unterdr&uuml;ckt (<i>winner-take-all</i>).</p><div><ul><li>4:</li></ul></div><p>"Getrennte Stimuli" - Beide Stimuli erzeugen einen &uuml;berschwelligen Aktivierungsberg.</p><div><ul><li>5:</li></ul></div><p>"Explosion" - Am Ende der Betrachtungszeit hat jede Einheit eine &uuml;berschwellige Aktivit&auml;t.</p><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2013a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Funktionsreferenz: decisions
+% Der Ordner "decisions" der DFT-Toolbox enthält Funktionen die, unter
+% Betrachtung bestimmter <OV_characteristics.html Maßzahlen>, eine
+% Entscheidung über den Zustand eines Feldes treffen. Alle diese Funktionen
+% liefern boolsche Werte zurück (in MatLab(R) als "0" für false und "1" für
+% true definiert). 
+%%
+% Beachte: *decideType()* bildet hier eine Ausnahme.
+%% decide2PointSRDx2(field)
+% Entscheidet, ob die beiden Stimuli getrennt wahrnehmbar sind. Als
+% Entscheidungsregel wird die Absolute Differenz der Fehlerwerte der
+% Gauss-Fits verwendet. Die Stimuli gelten als trennbar, wenn der
+% "ein-Gauss-Fit" einen *zwei mal so großen* Fehlerwert hat wie der "zwei-Gauss Fit".
+% *Input:*
+%%
+% * field:
+%%
+% Die field-Structure, deren Inhalt bewertet werden soll.
+%%
+% *Output:*
+%%
+% * decision:
+%%
+% Die Eintscheidung. _true_ wenn die Reize getrennt wahrnehmbar sind, _false_ wenn
+% nicht.
+%% decide2PointSRDx5(field)
+% Entscheidet, ob die beiden Stimuli getrennt wahrnehmbar sind. Als
+% Entscheidungsregel wird die Absolute Differenz der Fehlerwerte der
+% Gauss-Fits verwendet. Die Stimuli gelten als trennbar, wenn der
+% "ein-Gauss-Fit" einen *fünf mal so großen* Fehlerwert hat wie der "zwei-Gauss Fit".
+% *Input:*
+%%
+% * field:
+%%
+% Die field-Structure, deren Inhalt bewertet werden soll.
+%%
+% *Output:*
+%%
+% * decision:
+%%
+% Die Eintscheidung. _true_ wenn die Reize getrennt wahrnehmbar sind, _false_ wenn
+% nicht.
+%% decide2PointSRDx7(field)
+% Entscheidet, ob die beiden Stimuli getrennt wahrnehmbar sind. Als
+% Entscheidungsregel wird die Absolute Differenz der Fehlerwerte der
+% Gauss-Fits verwendet. Die Stimuli gelten als trennbar, wenn der
+% "ein-Gauss-Fit" einen *sieben mal so großen* Fehlerwert hat wie der "zwei-Gauss Fit".
+% *Input:*
+%%
+% * field:
+%%
+% Die field-Structure, deren Inhalt bewertet werden soll.
+%%
+% *Output:*
+%%
+% * decision:
+%%
+% Die Eintscheidung. _true_ wenn die Reize getrennt wahrnehmbar sind, _false_ wenn
+% nicht.
+%% decide2PointSRDx10(field)
+% Entscheidet, ob die beiden Stimuli getrennt wahrnehmbar sind. Als
+% Entscheidungsregel wird die Absolute Differenz der Fehlerwerte der
+% Gauss-Fits verwendet. Die Stimuli gelten als trennbar, wenn der
+% "ein-Gauss-Fit" einen *zehn mal so großen* Fehlerwert hat wie der "zwei-Gauss Fit".
+% *Input:*
+%%
+% * field:
+%%
+% Die field-Structure, deren Inhalt bewertet werden soll.
+%%
+% *Output:*
+%%
+% * decision:
+%%
+% Die Eintscheidung. _true_ wenn die Reize getrennt wahrnehmbar sind, _false_ wenn
+% nicht.
+%% decideDead(field)
+% Entscheidet, ob das Feld "tot" ist, also trotz Stimulus keine
+% überschwellige Aktivität zum Zeitpunkt zum Zeitpunkt _command on_ auftritt. 
+%%
+% * field:
+%%
+% Die field-Structure, deren Inhalt bewertet werden soll.
+%%
+% *Output:*
+%%
+% * decision:
+%%
+% Die Eintscheidung. _true_ wenn das Feld "tot" ist, _false_ wenn
+% nicht.
+%% decideExplosion(field)
+% Entscheidet, ob das Feld "explodiert", also am Ende der Betrachtungszeit
+% jede Einheit eine überschwellige Aktivität aufweist.
+%%
+% * field:
+%%
+% Die field-Structure, deren Inhalt bewertet werden soll.
+%%
+% *Output:*
+%%
+% * decision:
+%%
+% Die Eintscheidung. _true_ wenn das Feld "explodert", _false_ wenn
+% nicht.
+%% decideLocalization(field)
+% Setzt die Druckpunktdistanz der Parameter auf "0" und simuliert (wenn
+% nötig) danach neu. Untersucht wird der Abstand des Maximums der
+% Neuronantwort von der Stimulusposition. Ein hoher Abstand weist darauf
+% hin, dass der Usprungs des Stimulus nicht sehr genau lokalisiert werden
+% kann.
+%%
+% * field:
+%%
+% Die field-Structure, deren Inhalt bewertet werden soll.
+%%
+% *Output:*
+%%
+% * decision:
+%%
+% Die Eintscheidung. _true_ wenn die Lokalisation erfolgreich war, _false_ wenn
+% nicht.
+%% decideStimuliDivided(field)
+% Entscheidet, ob die Stimuli vollständig trennbar sind, also (fast) keine
+% Verschmelzung mehr aufweisen.
+%%
+% * field:
+%%
+% Die field-Structure, deren Inhalt bewertet werden soll.
+%%
+% *Output:*
+%%
+% * decision:
+%%
+% Die Eintscheidung. _true_ wenn die Stimuli getrennt sind, _false_ wenn
+% nicht.
+%% decideWTA(field)
+% Entscheidet, ob das Feld einen _winner-take-all_ Mechanismus aufweist.
+% Hierzu wird die Funktion <OV_characteristics differenceWTAAbs()>
+% aufgerufen.
+%%
+% * field:
+%%
+% Die field-Structure, deren Inhalt bewertet werden soll.
+%%
+% *Output:*
+%%
+% * decision:
+%%
+% Die Eintscheidung. _true_ wenn ein _winner-take-all_ vorliegt, _false_ wenn
+% nicht.
+%% decideType(field)
+% Kombiniert einige der Entscheiderfunktionen und teilt ein Feld somit in
+% eine von fünf verschiedenen Kategorien ein (siehe "Output").
+%%
+% Beachte: Bis auf weiteres verwendet diese Funktion zur 2-Punkt-Diskrimination die Funktion
+% *decide2PointSRDx5()*. Dies wird überarbeitet sobald eine bessere
+% Entscheidungsregel verfügbar ist.
+%%
+% * field:
+%%
+% Die field-Structure, deren Inhalt bewertet werden soll.
+%%
+% *Output:*
+%%
+% * decision:
+%%
+% Die Kategorie, in die das Feld sich einordnen lässt:
+%%
+% * 1:
+%%
+% "Totes" Feld - trotz Stimulus keinerlei überschwellige Aktivität.
+%%
+% * 2:
+%%
+% "Verschmelzung" - Die Antwort auf beide Stimuli verschmilzt zu einem
+% einzigen Aktivierungsberg.
+%%
+% * 3: 
+%% 
+% "WTA" - Nur ein Aktivierungsberg ist überschwellig, der zweite wurde
+% unterdrückt (_winner-take-all_).
+%%
+% * 4:
+%% 
+% "Getrennte Stimuli" - Beide Stimuli erzeugen einen überschwelligen
+% Aktivierungsberg.
+%%
+% * 5:
+%%
+% "Explosion" - Am Ende der Betrachtungszeit hat jede Einheit eine
+% überschwellige Aktivität.
+##### SOURCE END #####
+--></body></html>

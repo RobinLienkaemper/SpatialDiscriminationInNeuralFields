@@ -1,0 +1,150 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Plotting</title><meta name="generator" content="MATLAB 8.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2014-05-21"><meta name="DC.source" content="Plotting.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, tt, code { font-size:12px; }
+pre { margin:0px 0px 20px; }
+pre.error { color:red; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Plotting</h1><!--introduction--><p>Zur (bildlichen) Darstellung neuronaler Feldsimulationen bietet die DFT-Toolbox verschiedene Funktionen und Darstellungsweisen an.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Feld-Plot</a></li><li><a href="#10">Mesh-Plot</a></li><li><a href="#13">Fit-Plot</a></li><li><a href="#17">Siehe auch:</a></li></ul></div><h2>Feld-Plot<a name="1"></a></h2><p>Wird die Funktion <a href="OV_plots.html">plotField(field)</a> mit einer <a href="Simulationen.html">field-Structure</a> aufgerufen, erstellt sie die folgenden Abbildungen:</p><pre class="codeinput">params = stdParams1L();
+field  = sim(params);
+plotField(field);
+</pre><img vspace="5" hspace="5" src="Plotting_01.png" alt=""> <p>Die obere Abbildung zeigt das den Zustand des Feldes am Ende der Betrachtungszeit (gelb), die Form der Stimuli (rot) sowie die Aktivit&auml;t zum Zeitpunkt <i>command on</i>.</p><p>Die mittlere Abbildung zeigt die Aktivit&auml;t aller Einheiten (ordinate) &uuml;ber die gesamte Betrachtungszeit (abzisse). Die Aktivit&auml;t der einzelnen Einheiten ist farblich kodiert (Farbcode im Feld rechts dargestellt).</p><p>Die untere Abbildung zeigt den Interaktionskernel.</p><p>Der Feld-Plot eines zwei-Schicht-Modells unterscheidet sich leicht vom ein-Schicht-Modell, da hier die oberen beiden Abbildungen f&uuml;r beide Schichten vorkommen:</p><pre class="codeinput">params  = stdParams2L();
+field   = sim(params);
+plotField(field);
+</pre><img vspace="5" hspace="5" src="Plotting_02.png" alt=""> <h2>Mesh-Plot<a name="10"></a></h2><p>Die Funktion <a href="OV_plots.html">plotMesh(field)</a> erlaubt es, das Feld als 3D-Mesh zu betrachten. Der Aufruf funktioniert analog zu <a href="OV_plots.html">plotField(field)</a>:</p><pre class="codeinput">params = stdParams1L();
+field  = sim(params);
+plotMesh(field);
+</pre><img vspace="5" hspace="5" src="Plotting_03.png" alt=""> <p>Hier werden f&uuml;r 2-Schicht-Modelle auch zwei Meshes angezeigt.</p><h2>Fit-Plot<a name="13"></a></h2><p>F&uuml;r einige <a href="OV_characteristics.html">characteristischen Werte</a> und <a href="decisions.html">Entscheidungen</a> Wird die Neuronantwort durch eine bzw. zwei Gauss-Funktionen angen&auml;hert. Um diesen Plot f&uuml;r eine bestimmte <a href="Simulationen.html">field-Structure</a> zu &uuml;berpr&uuml;fen kann die Funktion <a href="OV_plots.html">plotFit(field)</a> verwendet werden. Auch ihr Aufruf erfolgt mit der field-Structure als Argument:</p><pre class="codeinput">params = stdParams1L();
+params.inp_diff = 50;        <span class="comment">% Zur Veranschaulichung besser geeignet</span>
+field  = sim(params);
+plotFit(field);
+</pre><pre class="codeoutput">	### square-Values ###
+	oneGauss: 147.1025
+	twoGauss: 19.9362
+	Difference: 127.1663
+</pre><p>Hier ist die Neuronantwort zum Zeitpunkt <i>command on</i> (analog zur blauen Kurve in plotField()) durch eine Gaussfunktion (gr&uuml;n) bzw. zwei Gauss-funktionen (rot) angen&auml;hert.</p><p>Die Funktion <b>plotFit()</b> gibt zus&auml;tzlich die Fehlerquadratwerte der beiden Fits sowie deren Differenz aus (zu sehen &uuml;ber der Grafik).</p><h2>Siehe auch:<a name="17"></a></h2><p>Einf&uuml;hrung in die <a href="simulationen.html">Simulationen</a></p><p>Funktionsreferenz der Funktionen zum Thema <a href="OV_plot.html">Plots</a></p><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2013a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Plotting
+% Zur (bildlichen) Darstellung neuronaler Feldsimulationen bietet die
+% DFT-Toolbox verschiedene Funktionen und Darstellungsweisen an.
+%% Feld-Plot
+% Wird die Funktion <OV_plots.html plotField(field)> mit einer <Simulationen.html
+% field-Structure> aufgerufen, erstellt sie die folgenden Abbildungen:
+%%
+params = stdParams1L();
+field  = sim(params);
+plotField(field);
+%%
+% Die obere Abbildung zeigt das den Zustand des Feldes am Ende der
+% Betrachtungszeit (gelb), die Form der Stimuli (rot) sowie die Aktivität
+% zum Zeitpunkt _command on_. 
+%%
+% Die mittlere Abbildung zeigt die Aktivität aller Einheiten (ordinate)
+% über die gesamte Betrachtungszeit (abzisse). Die Aktivität der einzelnen
+% Einheiten ist farblich kodiert (Farbcode im Feld rechts dargestellt).
+%%
+% Die untere Abbildung zeigt den Interaktionskernel.
+%%
+%%
+% Der Feld-Plot eines zwei-Schicht-Modells unterscheidet sich leicht vom
+% ein-Schicht-Modell, da hier die oberen beiden Abbildungen für beide
+% Schichten vorkommen:
+%%
+params  = stdParams2L();
+field   = sim(params);
+plotField(field);
+%%
+%% Mesh-Plot
+% Die Funktion <OV_plots.html plotMesh(field)> erlaubt es, das Feld als 3D-Mesh zu betrachten. Der Aufruf
+% funktioniert analog zu <OV_plots.html plotField(field)>:
+%%
+params = stdParams1L();
+field  = sim(params);
+plotMesh(field);
+%%
+% Hier werden für 2-Schicht-Modelle auch zwei Meshes angezeigt.
+%% Fit-Plot
+% Für einige <OV_characteristics.html characteristischen Werte> und
+% <decisions.html Entscheidungen> Wird die Neuronantwort durch eine bzw.
+% zwei Gauss-Funktionen angenähert. Um diesen Plot für eine bestimmte
+% <Simulationen.html field-Structure> zu überprüfen kann die Funktion <OV_plots.html
+% plotFit(field)> verwendet werden. Auch ihr Aufruf erfolgt mit der
+% field-Structure als Argument:
+%%
+params = stdParams1L();
+params.inp_diff = 50;        % Zur Veranschaulichung besser geeignet
+field  = sim(params);
+plotFit(field);
+%%
+% Hier ist die Neuronantwort zum Zeitpunkt _command on_ (analog zur blauen
+% Kurve in plotField()) durch eine Gaussfunktion (grün) bzw. zwei
+% Gauss-funktionen (rot) angenähert.
+%%
+% Die Funktion *plotFit()* gibt zusätzlich die
+% Fehlerquadratwerte der beiden Fits sowie deren Differenz aus (zu sehen über der Grafik).
+%% Siehe auch:
+% Einführung in die <simulationen.html Simulationen>
+%%
+% Funktionsreferenz der Funktionen zum Thema <OV_plot.html Plots>
+##### SOURCE END #####
+--></body></html>

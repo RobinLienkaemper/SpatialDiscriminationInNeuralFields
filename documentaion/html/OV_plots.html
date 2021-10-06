@@ -1,0 +1,163 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Funktionsreferenz: plots</title><meta name="generator" content="MATLAB 8.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2014-05-21"><meta name="DC.source" content="OV_plots.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, tt, code { font-size:12px; }
+pre { margin:0px 0px 20px; }
+pre.error { color:red; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Funktionsreferenz: plots</h1><!--introduction--><p>Der Ordner "plots" der DFT-Toolbox enth&auml;lt Funktionen, die Abbildungen und Plots erstellen k&ouml;nnen, welche den Zustand und das Verhalten eines Feldes ersichtlich machen. Beispiele und Anwendungsm&ouml;glichkeiten dieser Funktionen sind in  <a href="plotting.html">"Plotting"</a> aufgelistet.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">plotField(field)</a></li><li><a href="#4">plotField1L(field)</a></li><li><a href="#5">plotField2L(field)</a></li><li><a href="#6">plotFit(field)</a></li><li><a href="#9">plotFit1L(field)</a></li><li><a href="#10">plotFit2L(field)</a></li><li><a href="#11">plotMesh(field)</a></li><li><a href="#14">plotMesh1L(field)</a></li><li><a href="#15">plotMesh2L(field)</a></li><li><a href="#16">fitGauss(params, u_field)</a></li><li><a href="#21">smoothData(data, windowSize)</a></li></ul></div><h2>plotField(field)<a name="1"></a></h2><p>Erstellt einen Field-Plot von der &uuml;bergebenen  <a href="simulationen.html">field-structure</a>.</p><p><b>Input:</b></p><div><ul><li>field:</li></ul></div><p>Die field-Structure, deren Inhalt geplottet werden soll.</p><h2>plotField1L(field)<a name="4"></a></h2><p>Wird von <b>plotField()</b> aufgerufen, wenn die &uuml;bergebene field-structure zu einem ein-schicht-Modell geh&ouml;rt. Der direkte Aufruf erfolgt Analog zu <b>plotField()</b>.</p><h2>plotField2L(field)<a name="5"></a></h2><p>Wird von <b>plotField()</b> aufgerufen, wenn die &uuml;bergebene field-structure zu einem ein-schicht-Modell geh&ouml;rt. Der direkte Aufruf erfolgt Analog zu <b>plotField()</b>.</p><h2>plotFit(field)<a name="6"></a></h2><p>Plottet die Neuronenantwort zum Zeitpunkt <i>command on</i> und n&auml;hert diese durch eine bzw. zwei Gauss-Funktionen an. Die Funktion gibt zus&auml;tzlich die Fehlerquadratwerde der Fits und deren Differenz aus.</p><p><b>Input:</b></p><div><ul><li>field:</li></ul></div><p>Die field-Structure, deren Inhalt geplottet werden soll.</p><h2>plotFit1L(field)<a name="9"></a></h2><p>Wird von <b>plotFit()</b> aufgerufen, wenn die &uuml;bergebene field-structure zu einem ein-schicht-Modell geh&ouml;rt. Der direkte Aufruf erfolgt Analog zu <b>plotFit()</b>.</p><h2>plotFit2L(field)<a name="10"></a></h2><p>Wird von <b>plotFit()</b> aufgerufen, wenn die &uuml;bergebene field-structure zu einem ein-schicht-Modell geh&ouml;rt. Der direkte Aufruf erfolgt Analog zu <b>plotFit()</b>.</p><h2>plotMesh(field)<a name="11"></a></h2><p>Erstellt ein dreidimensionales Bild des Feldes.</p><p><b>Input:</b></p><div><ul><li>field:</li></ul></div><p>Die field-Structure, deren Inhalt geplottet werden soll.</p><h2>plotMesh1L(field)<a name="14"></a></h2><p>Wird von <b>plotMesh()</b> aufgerufen, wenn die &uuml;bergebene field-structure zu einem ein-schicht-Modell geh&ouml;rt. Der direkte Aufruf erfolgt Analog zu <b>plotMesh()</b>.</p><h2>plotMesh2L(field)<a name="15"></a></h2><p>Wird von <b>plotMesh()</b> aufgerufen, wenn die &uuml;bergebene field-structure zu einem ein-schicht-Modell geh&ouml;rt. Der direkte Aufruf erfolgt Analog zu <b>plotMesh()</b>.</p><h2>fitGauss(params, u_field)<a name="16"></a></h2><p>F&uuml;hrt das ann&auml;hern von ein- bzw. zwei Gauss-Funktionen durch und gibt die fit-Structures (-&gt; curve-fitting-toolbox) zur&uuml;ck. Die Funktion wird z.B. von <b>plotFit()</b> aufgerufen, kann aber auch in eigenen Scripts verwendet werden.</p><p><b>Input:</b></p><div><ul><li>params:</li></ul></div><p>Die parameter-structure, die der Simulation zugrunde lag. Entspricht field.params einer field-structure.</p><div><ul><li>u_field:</li></ul></div><p>Die Matrix mit Neuronenaktivit&auml;ten die die Simulation ergeben hat. Entspricht field.field bei einer ein-Schicht field-structure bzw. field.field.u oder field.field.v bei zwei-Schicht-Modellen.</p><h2>smoothData(data, windowSize)<a name="21"></a></h2><p>Gl&auml;ttet die &uuml;bergebenen (X/Y-) Daten mithilfe eines Filter anpassbarer Gr&ouml;&szlig;e.</p><p><b>Input:</b></p><div><ul><li>data:</li></ul></div><p>Die zu gl&auml;ttenden Daten (eine zweidimensionale Verteilung).</p><div><ul><li>windowSize:</li></ul></div><p>Die Fenstergr&ouml;&szlig;e des Filters.</p><p><b>Output:</b></p><div><ul><li>smoothedData:</li></ul></div><p>Eine Matrix mit den gegl&auml;tteten Daten. Die Gr&ouml;&szlig;e entspricht <i>data</i>.</p><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2013a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Funktionsreferenz: plots
+% Der Ordner "plots" der DFT-Toolbox enthält Funktionen, die Abbildungen
+% und Plots erstellen können, welche den Zustand und das Verhalten eines
+% Feldes ersichtlich machen. Beispiele und Anwendungsmöglichkeiten dieser
+% Funktionen sind in  <plotting.html "Plotting"> aufgelistet.
+%% plotField(field)
+% Erstellt einen Field-Plot von der übergebenen  <simulationen.html field-structure>.
+%
+% *Input:*
+%%
+% * field:
+%%
+% Die field-Structure, deren Inhalt geplottet werden soll.
+%% plotField1L(field)
+% Wird von *plotField()* aufgerufen, wenn die übergebene field-structure
+% zu einem ein-schicht-Modell gehört. Der direkte Aufruf erfolgt Analog zu
+% *plotField()*.
+%% plotField2L(field)
+% Wird von *plotField()* aufgerufen, wenn die übergebene field-structure
+% zu einem ein-schicht-Modell gehört. Der direkte Aufruf erfolgt Analog zu
+% *plotField()*.
+%% plotFit(field)
+% Plottet die Neuronenantwort zum Zeitpunkt _command on_ und nähert diese
+% durch eine bzw. zwei Gauss-Funktionen an. Die Funktion gibt zusätzlich
+% die Fehlerquadratwerde der Fits und deren Differenz aus.
+%
+% *Input:*
+%%
+% * field:
+%%
+% Die field-Structure, deren Inhalt geplottet werden soll.
+%% plotFit1L(field)
+% Wird von *plotFit()* aufgerufen, wenn die übergebene field-structure
+% zu einem ein-schicht-Modell gehört. Der direkte Aufruf erfolgt Analog zu
+% *plotFit()*.
+%% plotFit2L(field)
+% Wird von *plotFit()* aufgerufen, wenn die übergebene field-structure
+% zu einem ein-schicht-Modell gehört. Der direkte Aufruf erfolgt Analog zu
+% *plotFit()*.
+%% plotMesh(field)
+% Erstellt ein dreidimensionales Bild des Feldes.
+%
+% *Input:*
+%%
+% * field:
+%%
+% Die field-Structure, deren Inhalt geplottet werden soll.
+%% plotMesh1L(field)
+% Wird von *plotMesh()* aufgerufen, wenn die übergebene field-structure
+% zu einem ein-schicht-Modell gehört. Der direkte Aufruf erfolgt Analog zu
+% *plotMesh()*.
+%% plotMesh2L(field)
+% Wird von *plotMesh()* aufgerufen, wenn die übergebene field-structure
+% zu einem ein-schicht-Modell gehört. Der direkte Aufruf erfolgt Analog zu
+% *plotMesh()*.
+%% fitGauss(params, u_field)
+% Führt das annähern von ein- bzw. zwei Gauss-Funktionen durch und gibt die
+% fit-Structures (-> curve-fitting-toolbox) zurück. Die Funktion wird z.B.
+% von *plotFit()* aufgerufen, kann aber auch in eigenen Scripts verwendet
+% werden.
+%
+% *Input:*
+%%
+% * params:
+%%
+% Die parameter-structure, die der Simulation zugrunde lag. Entspricht
+% field.params einer field-structure.
+%%
+% * u_field:
+%%
+% Die Matrix mit Neuronenaktivitäten die die Simulation ergeben hat. Entspricht
+% field.field bei einer ein-Schicht field-structure bzw. field.field.u oder
+% field.field.v bei zwei-Schicht-Modellen.
+%% smoothData(data, windowSize)
+% Glättet die übergebenen (X/Y-) Daten mithilfe eines Filter anpassbarer
+% Größe.
+%
+% *Input:*
+%%
+% * data:
+%%
+% Die zu glättenden Daten (eine zweidimensionale Verteilung).
+%%
+% * windowSize:
+%%
+% Die Fenstergröße des Filters.
+%%
+% *Output:*
+%%
+% * smoothedData:
+%%
+% Eine Matrix mit den geglätteten Daten. Die Größe entspricht _data_.
+##### SOURCE END #####
+--></body></html>

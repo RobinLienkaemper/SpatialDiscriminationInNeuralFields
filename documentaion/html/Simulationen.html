@@ -1,0 +1,151 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Simulationen mit der DFT-Toolbox</title><meta name="generator" content="MATLAB 8.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2014-05-21"><meta name="DC.source" content="Simulationen.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, tt, code { font-size:12px; }
+pre { margin:0px 0px 20px; }
+pre.error { color:red; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Simulationen mit der DFT-Toolbox</h1><!--introduction--><p>Die DFT-Toolbox ist darauf ausgelegt einfach und schnell neuronale-Feld-Simulationen durchzuf&uuml;hren, anzuzeigen und zu untersuchen. Der Kern dieser Funktionen ist die Simulation selbst, die hier beschrieben wird.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Festlegen der Simulationsparameter</a></li><li><a href="#2">Simulation durchf&uuml;hren</a></li><li><a href="#7">Die Field-Structure</a></li><li><a href="#12">Siehe auch</a></li></ul></div><h2>Festlegen der Simulationsparameter<a name="1"></a></h2><p>DFT-Toolbox Simulationen werden mit einer Structure aufgerufen, die alle notwendigen Parameter enth&auml;lt. Vor der Simulation k&ouml;nnen diese Parameter beliebig angepasst werden. F&uuml;r Einzelheiten zum arbeiten mit Parametern siehe <a href="paramsstruct.html">Params-Structure</a></p><h2>Simulation durchf&uuml;hren<a name="2"></a></h2><p>Um eine Simulation durchzuf&uuml;hren muss die Funktion <b>sim()</b> mit der zu verwendenden Parameter-Structure aufgerufen werden:</p><pre class="codeinput">params = stdParams1L();
+sim(params);
+</pre><p>Die Funktion <b>sim()</b> w&auml;hlt (abh&auml;ngig vom Feld "layers" in der Parameterstructure) die jeweilige Simulationsfunktion f&uuml;r ein- bzw. zwei-schicht Modelle aus. Alternativ k&ouml;nnen direkt die Funktionen <b>sim1L()</b> und <b>sim2L()</b> verwendet werden. Die Parameterstructures sind jedoch <i>nicht kompatibel</i>! Der aufruf</p><p>sim2L(params);</p><p>f&uuml;hrt also zu einer Fehlermeldung. Die "transformation" eines Parametersatzes von einem ins andere Modell kann durch die Funktion <b>transformParams()</b> erreicht werden (derzeit nicht verf&uuml;gbar).</p><h2>Die Field-Structure<a name="7"></a></h2><p>Das Ergebnis einer Simulation mit <b>sim()</b> ist eine Field-Structure mit genau zwei Eintr&auml;gen:</p><pre class="codeinput">sim(stdParams1L())
+</pre><pre class="codeoutput">
+ans = 
+
+    params: [1x1 struct]
+     field: [1000x501 double]
+
+</pre><p>Diese Structure enth&auml;lt f&uuml;r die weitere Verarbeitung des Ergebnisses eine Kopie der verwendeten Parameter-Structure (im Feld params) und eine <i>timesteps</i> x <i>fieldsize</i> gro&szlig;e Matrix, die das gesamte simulierte Feld enth&auml;lt. Eine auf diese Weise erstellte Field-Structure kann nun zur weiteren Untersuchung an andere Funktionen &uuml;bergeben werden. Das Feld kann <a href="plotting.html">geplottet</a> werden oder auf bestimmte <a href="OV_characteristics.html">charakteristika</a> hin untersucht werden. Die DFT-Toolbox bietet au&szlig;erdem Funktionen an, mit denen &uuml;ber bestimmte Zust&auml;nde oder Eigenschaften des Feldes <a href="OV_decisions.html">entschieden</a> werden kann.</p><p>Beachte: Bei Simulationen mit zwei-Schicht-Modellen ist das Feld "field" der field-Structure keine Matrix, sondern eine weitere Structure, die zwei Matrizen enth&auml;lt:</p><pre class="codeinput">foo = sim2L(stdParams2L())
+bar = foo.field
+</pre><pre class="codeoutput">
+foo = 
+
+    params: [1x1 struct]
+     field: [1x1 struct]
+
+
+bar = 
+
+    u: [1800x501 double]
+    v: [1800x501 double]
+
+</pre><h2>Siehe auch<a name="12"></a></h2><p>Funktionsreferenz der Funktionen zum Thema <a href="OV_simulation.html">Simulation</a></p><p>Einf&uuml;hrung in die <a href="paramsstruct.html">Parameterstructure</a></p><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2013a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Simulationen mit der DFT-Toolbox
+% Die DFT-Toolbox ist darauf ausgelegt einfach und schnell
+% neuronale-Feld-Simulationen durchzuführen, anzuzeigen und zu untersuchen.
+% Der Kern dieser Funktionen ist die Simulation selbst, die hier
+% beschrieben wird.
+
+%% Festlegen der Simulationsparameter
+% DFT-Toolbox Simulationen werden mit einer Structure aufgerufen, die alle
+% notwendigen Parameter enthält. Vor der Simulation können diese Parameter
+% beliebig angepasst werden. Für Einzelheiten zum arbeiten mit Parametern
+% siehe <paramsstruct.html Params-Structure>
+
+%% Simulation durchführen
+% Um eine Simulation durchzuführen muss die Funktion *sim()* mit der zu
+% verwendenden Parameter-Structure aufgerufen werden:
+%%
+params = stdParams1L();
+sim(params);
+%%
+% Die Funktion *sim()* wählt (abhängig vom Feld "layers" in der
+% Parameterstructure) die jeweilige Simulationsfunktion für ein- bzw.
+% zwei-schicht Modelle aus. Alternativ können direkt die Funktionen *sim1L()* und
+% *sim2L()* verwendet werden. Die Parameterstructures sind jedoch _nicht
+% kompatibel_! Der aufruf
+%%
+% sim2L(params);
+%%
+% führt also zu einer Fehlermeldung. Die "transformation" eines
+% Parametersatzes von einem ins andere Modell kann durch die Funktion
+% *transformParams()* erreicht werden (derzeit nicht verfügbar).
+%% Die Field-Structure
+% Das Ergebnis einer Simulation mit *sim()* ist eine Field-Structure mit
+% genau zwei Einträgen: 
+
+%%
+sim(stdParams1L())
+%%
+% Diese Structure enthält für die weitere Verarbeitung des Ergebnisses 
+% eine Kopie der verwendeten Parameter-Structure (im Feld params) und eine
+% _timesteps_ x _fieldsize_ große Matrix, die das gesamte simulierte
+% Feld enthält. Eine auf diese Weise erstellte Field-Structure kann nun zur
+% weiteren Untersuchung an andere Funktionen übergeben werden. Das Feld
+% kann <plotting.html geplottet> werden oder auf bestimmte
+% <OV_characteristics.html charakteristika> hin untersucht werden.
+% Die DFT-Toolbox bietet außerdem Funktionen an, mit denen über bestimmte
+% Zustände oder Eigenschaften des Feldes <OV_decisions.html entschieden> werden kann.
+%%
+% Beachte: Bei Simulationen mit zwei-Schicht-Modellen ist das Feld "field"
+% der field-Structure keine Matrix, sondern eine weitere Structure, die zwei Matrizen
+% enthält:
+%%
+foo = sim2L(stdParams2L())
+bar = foo.field
+%% Siehe auch
+% Funktionsreferenz der Funktionen zum Thema <OV_simulation.html Simulation>
+%%
+% Einführung in die <paramsstruct.html Parameterstructure>
+##### SOURCE END #####
+--></body></html>

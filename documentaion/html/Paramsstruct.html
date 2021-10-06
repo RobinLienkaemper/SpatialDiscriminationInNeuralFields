@@ -1,0 +1,265 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Die params structure</title><meta name="generator" content="MATLAB 8.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2014-05-21"><meta name="DC.source" content="Paramsstruct.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, tt, code { font-size:12px; }
+pre { margin:0px 0px 20px; }
+pre.error { color:red; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Die params structure</h1><!--introduction--><p>Zur Definition und Speicherung der Parameter, die f&uuml;r die Simulation neuronaler Felder ben&ouml;tigt werden, wird in der DFT-Toolbox eine Structure verwendet, die jedem Parameter ihren jeweiligen Zahlenwert zuordnet.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Verwendung</a></li><li><a href="#11">Parameterbereiche</a></li><li><a href="#12">Verwendete Parameter (ein-Schicht-Modell)</a></li><li><a href="#13">Schichten</a></li><li><a href="#15">Interaktions-Kernel</a></li><li><a href="#25">Stimuli</a></li><li><a href="#35">Allgemeine Parameter</a></li><li><a href="#55">Weitere Parameter</a></li><li><a href="#57">Anwendung zur Simulation</a></li></ul></div><h2>Verwendung<a name="1"></a></h2><p>Die Funktion <a href="OV_parameter.html">stdParams1L()</a> gibt eine params Structure (gef&uuml;llt mir Beispielparametern) f&uuml;r ein 1-Schicht-Modell aus:</p><pre class="codeinput">stdParams1L()
+</pre><pre class="codeoutput">
+ans = 
+
+                     layers: 1
+    InteractionKernelParams: '-------------------------------------'
+                      w_exc: 4
+                      w_inh: 3.6000
+                 w_inh_glob: 0
+                    sig_exc: 15
+                    sig_inh: 30
+                InputParams: '-------------------------------------'
+                    inp_pos: 300
+                    inp_str: 10
+                    inp_sig: 5
+                    inp_inh: 0
+                   inp_diff: 30
+              GeneralParams: '-------------------------------------'
+                    h_level: -1
+                  threshold: 0
+                        tau: 10
+                       beta: 1.5000
+                  noise_str: 0.3000
+                     n_runs: 1
+                n_timesteps: 1000
+           n_prerelax_steps: 100
+               n_command_on: 500
+                n_fieldsize: 501
+              BooleanParams: '-------------------------------------'
+                UseSigNoNeg: 1
+
+</pre><p>Man beachte, das die Felder <i>InteractionKernelParams</i>, <i>InputParams</i>, <i>GeneralParams</i> und <i>BooleanParams</i> lediglich Trennzeichen zur Verbesserung der Lesbarkeit sind und keinerlei Verwendung innerhalb der Simulation haben.</p><p>Speichert man verschiedene Parameter-Structures in MatLab&reg; Variablen, k&ouml;nnen diese unabh&auml;ngig voneinander betrachtet, ver&auml;ndert und untersucht werden:</p><pre class="codeinput">params1 = stdParams1L();
+params2 = stdParams1L();
+</pre><p>Einzelne Werte innerhalb der Structure k&ouml;nnen &uuml;ber folgende Syntax angesteuert und ver&auml;ndert werden:</p><pre class="codeinput">params1.w_exc               <span class="comment">% Gibt den Inhalt des Feldes "w_exc" aus. (In den Beispielparametern 4)</span>
+</pre><pre class="codeoutput">
+ans =
+
+     4
+
+</pre><pre class="codeinput">params1.w_exc = 100;        <span class="comment">% Setzt den Wert von "w_exc" auf 100.</span>
+params1.w_exc               <span class="comment">% Gibt den neuen Wert aus</span>
+</pre><pre class="codeoutput">
+ans =
+
+   100
+
+</pre><p>Das Entsprechende Feld in params2 ist von dieser &Auml;nderung nicht betroffen:</p><pre class="codeinput">params2.w_exc
+</pre><pre class="codeoutput">
+ans =
+
+     4
+
+</pre><h2>Parameterbereiche<a name="11"></a></h2><p>Die DFT-Toolbox stellt Funktionen zur Verf&uuml;gung, mit denen beliebig gro&szlig;e Parameterbereiche untersucht werden k&ouml;nnen. N&auml;heres hierzu unter <a href="paramscans.html">Parameter-Scans</a></p><h2>Verwendete Parameter (ein-Schicht-Modell)<a name="12"></a></h2><p>Die verwendeten Parameter definieren die folgenden Eigenschaften des Feldes:</p><h2>Schichten<a name="13"></a></h2><div><ul><li>layers</li></ul></div><p>Legt die Anzahl der Schichten fest (derzeit nur ein- und zwei-Schicht modelle unterst&uuml;tzt).</p><h2>Interaktions-Kernel<a name="15"></a></h2><div><ul><li>w_exc</li></ul></div><p>Gibt die "St&auml;rke" der Excitation an.</p><div><ul><li>w_inh</li></ul></div><p>Gibt die "St&auml;rke" der spezifischen (= lateralen) Inhibition an.</p><div><ul><li>w_inh_glob</li></ul></div><p>Gibt die "St&auml;rke" der unspezifischen (= globalen) Inhibition an.</p><div><ul><li>sig_exc</li></ul></div><p>Gibt die Breite der "excitatorischen" Gauss-Funktion an, die im interaction-kernel verwendet wird.</p><div><ul><li>sig_inh</li></ul></div><p>Gibt die Breite der "inhibitorischen" Gauss-Funktion an, die im interaction-kernel verwendet wird.</p><h2>Stimuli<a name="25"></a></h2><div><ul><li>inp_pos</li></ul></div><p>Gibt die Position des Stimulus innerhalb des Feldes an.</p><div><ul><li>inp_str</li></ul></div><p>Gibt die excitatorische St&auml;rke des Stimulus an.</p><div><ul><li>inp_sig</li></ul></div><p>Gibt die "Breite" Des Stimulus an (Gauss-Funktion).</p><div><ul><li>inp_inh</li></ul></div><p>Gibt die inhibitorische St&auml;rke des Stimulus an.</p><div><ul><li>inp_diff</li></ul></div><p>Gibt die Distanz der Stimuli an.</p><h2>Allgemeine Parameter<a name="35"></a></h2><div><ul><li>h_level</li></ul></div><p>Legt das "resting Level", also die Aktivit&auml;t im Ruhezustand, fest.</p><div><ul><li>threshold</li></ul></div><p>Legt die Aktivit&auml;t fest, bei der ein Neuron aktiviert wird (per Konvention auf 0 festgeselegt).</p><div><ul><li>tau</li></ul></div><p>Die Zeitkonstante</p><div><ul><li>beta</li></ul></div><p>Die "Breite" der Sigmoidfunktion, die die neuronalen Interaktionen gewichtet.</p><div><ul><li>noise_str</li></ul></div><p>Die St&auml;rke des Rauschens.</p><div><ul><li>n_runs</li></ul></div><p>Anzahl der Simulationsdurchl&auml;ufe, deren Ergebnis gemittelt wird.</p><div><ul><li>n_timesteps</li></ul></div><p>Anzahl der Zeitschritte, &uuml;ber die das System simuliert wird.</p><div><ul><li>n_prerelax_steps</li></ul></div><p>Anzahl Zeitschritte vor dem Einsetzen des Stimulus</p><div><ul><li>n_command_on</li></ul></div><p>Anzahl Zeitschritte, die der Stimulus andauert.</p><div><ul><li>n_fieldsize</li></ul></div><p>Anzahl der Einheiten im System ( = Feldgr&ouml;&szlig;e).</p><h2>Weitere Parameter<a name="55"></a></h2><div><ul><li>UseSigRob</li></ul></div><p>Gibt an, ob die angepasste Sigmoidfunktion verwendet werden soll, die Einheiten mit einer Aktivit&auml;t unterhalb des thresholds keine Interaktion mit anderen Neuronen erlaubt. Wird dieser Wert auf "false" (in Matlab&reg; gleichbedeutend mit 0) gesetzt, wird bei Simulationen mit diesem Parametersatz die urspr&uuml;ngliche Sigmoide verwendet.</p><h2>Anwendung zur Simulation<a name="57"></a></h2><p>Siehe <a href="Simulationen.html">Simulationen</a></p><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2013a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Die params structure
+% Zur Definition und Speicherung der Parameter, die für die Simulation neuronaler Felder benötigt werden,
+% wird in der DFT-Toolbox eine Structure verwendet, die jedem Parameter ihren jeweiligen Zahlenwert zuordnet.
+
+%% Verwendung
+% Die Funktion <OV_parameter.html stdParams1L()> gibt eine params Structure
+% (gefüllt mir Beispielparametern) für ein 1-Schicht-Modell aus:
+%%
+stdParams1L()
+%% 
+% Man beachte, das die Felder _InteractionKernelParams_, _InputParams_,
+% _GeneralParams_ und _BooleanParams_ lediglich Trennzeichen zur Verbesserung der Lesbarkeit sind und keinerlei Verwendung innerhalb der Simulation haben.
+
+%%
+% Speichert man verschiedene Parameter-Structures in MatLab(R) Variablen,
+% können diese unabhängig voneinander betrachtet, verändert und untersucht
+% werden:
+
+%%
+params1 = stdParams1L();
+params2 = stdParams1L();
+%%
+% Einzelne Werte innerhalb der Structure können über folgende Syntax
+% angesteuert und verändert werden:
+%%
+params1.w_exc               % Gibt den Inhalt des Feldes "w_exc" aus. (In den Beispielparametern 4)
+%%
+params1.w_exc = 100;        % Setzt den Wert von "w_exc" auf 100.
+params1.w_exc               % Gibt den neuen Wert aus
+%%
+% Das Entsprechende Feld in params2 ist von dieser Änderung nicht
+% betroffen:
+%%
+params2.w_exc
+%% Parameterbereiche
+% Die DFT-Toolbox stellt Funktionen zur Verfügung, mit denen
+% beliebig große Parameterbereiche untersucht werden können. Näheres hierzu
+% unter <paramscans.html Parameter-Scans>
+%% Verwendete Parameter (ein-Schicht-Modell)
+% Die verwendeten Parameter definieren die folgenden Eigenschaften des
+% Feldes:
+%% Schichten
+% * layers
+%%
+% Legt die Anzahl der Schichten fest (derzeit nur ein- und zwei-Schicht
+% modelle unterstützt).
+
+%% Interaktions-Kernel
+% * w_exc
+%%
+% Gibt die "Stärke" der Excitation an.
+%%
+% * w_inh
+%%
+% Gibt die "Stärke" der spezifischen (= lateralen) Inhibition an.
+%%
+% * w_inh_glob
+%%
+% Gibt die "Stärke" der unspezifischen (= globalen) Inhibition an.
+%%
+% * sig_exc
+%%
+% Gibt die Breite der "excitatorischen" Gauss-Funktion an, die im
+% interaction-kernel verwendet wird.
+%%
+% * sig_inh
+%%
+% Gibt die Breite der "inhibitorischen" Gauss-Funktion an, die im
+% interaction-kernel verwendet wird.
+
+%% Stimuli
+% * inp_pos
+%%
+% Gibt die Position des Stimulus innerhalb des Feldes an.
+%%
+% * inp_str
+%%
+% Gibt die excitatorische Stärke des Stimulus an.
+%%
+% * inp_sig 
+%%
+% Gibt die "Breite" Des Stimulus an (Gauss-Funktion).
+%%
+% * inp_inh
+%%
+% Gibt die inhibitorische Stärke des Stimulus an.
+%%
+% * inp_diff  
+%%
+% Gibt die Distanz der Stimuli an.
+%% Allgemeine Parameter
+% * h_level
+%%
+% Legt das "resting Level", also die Aktivität im Ruhezustand, fest.
+%%
+% * threshold              
+%%
+% Legt die Aktivität fest, bei der ein Neuron aktiviert wird (per
+% Konvention auf 0 festgeselegt).
+%%
+% * tau
+%%
+% Die Zeitkonstante
+%%
+% * beta
+%%
+% Die "Breite" der Sigmoidfunktion, die die neuronalen Interaktionen
+% gewichtet.
+%% 
+% * noise_str
+%%
+% Die Stärke des Rauschens.
+%% 
+% * n_runs   
+%% 
+% Anzahl der Simulationsdurchläufe, deren Ergebnis gemittelt wird.
+%%
+% * n_timesteps 
+%%
+% Anzahl der Zeitschritte, über die das System simuliert wird.
+%% 
+% * n_prerelax_steps 
+%%
+% Anzahl Zeitschritte vor dem Einsetzen des Stimulus
+%%
+% * n_command_on 
+%%
+% Anzahl Zeitschritte, die der Stimulus andauert.
+%%
+% * n_fieldsize
+%%
+% Anzahl der Einheiten im System ( = Feldgröße).
+%% Weitere Parameter
+% * UseSigRob      
+%%
+% Gibt an, ob die angepasste Sigmoidfunktion verwendet werden soll, die
+% Einheiten mit einer Aktivität unterhalb des thresholds keine Interaktion
+% mit anderen Neuronen erlaubt. Wird dieser Wert auf "false" (in Matlab(R)
+% gleichbedeutend mit 0) gesetzt, wird bei Simulationen mit diesem Parametersatz die ursprüngliche Sigmoide
+% verwendet.
+%% Anwendung zur Simulation
+% Siehe <Simulationen.html Simulationen>
+##### SOURCE END #####
+--></body></html>
